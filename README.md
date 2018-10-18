@@ -1,2 +1,0 @@
-# upperquadQs
-Coding Qs 
