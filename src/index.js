@@ -4,6 +4,7 @@ import objectFitImages from 'object-fit-images';
 import {init, animate} from "./canvas";
 
 let startedAnimation = false;
+const imagesIndex = [0,2,3,4,5,6];
 
 function isScrolledIntoView(el) {
     var rect = el.getBoundingClientRect();
@@ -15,17 +16,18 @@ function isScrolledIntoView(el) {
 
 window.addEventListener('scroll', function (event) {
     let elements = document.querySelector('#pics').children;
-
-    for(let i=0; i<elements.length; i++) {
-        if (isScrolledIntoView(elements[i])) {
-            if(!elements[i].classList.contains('is-visible')) {
-                elements[i].classList.add('is-visible');
-                elements[i].children[0].src = jsonData.data[i].images.standard_resolution.url;
+    let j=0;
+    imagesIndex.forEach(function(i){
+        if (isScrolledIntoView(elements[j])) {
+            if(!elements[j].classList.contains('is-visible')) {
+                elements[j].classList.add('is-visible');
+                elements[j].children[0].src = jsonData.data[i].images.standard_resolution.url;
             }
-        } else if(elements[i].classList.contains('is-visible')){
-            elements[i].classList.remove('is-visible');
+        } else if(elements[j].classList.contains('is-visible')){
+            elements[j].classList.remove('is-visible');
         }
-    }
+        j++;
+    })
 
     // Bouncy Ball
     if (!startedAnimation && isScrolledIntoView(document.querySelector('canvas'))) {
