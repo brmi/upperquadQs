@@ -43,7 +43,7 @@ function Ball(x, y, dx, dy, radius, color) {
         if(mouse.x && mouse.y) {
             let distX = this.x - mouse.x;
             let distY = this.y - mouse.y;
-            if (Math.abs(distX) < this.radius + force && Math.abs(distY) < this.radius + force) {
+            if (Math.abs(distX) < this.radius + 10 && Math.abs(distY) < this.radius + 10) {
                 if( distX > 0) {
                     // mouse is on the left of ball
                     this.dx += force;
