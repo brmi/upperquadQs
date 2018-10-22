@@ -21,10 +21,6 @@ module.exports = {
           ]
         },
         {
-          test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader"]
-        },
-        {
             test: /\.scss$/,
             use: [
               {
@@ -37,6 +33,12 @@ module.exports = {
                 loader: "sass-loader" // compiles Sass to CSS
               }
             ]
+          },
+          {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [
+                'file-loader'
+            ]
           }
       ]
     },
@@ -44,10 +46,6 @@ module.exports = {
       new HtmlWebPackPlugin({
         template: "./src/index.html",
         filename: "./index.html"
-      }),
-      new MiniCssExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].css"
       })
     ]
   };

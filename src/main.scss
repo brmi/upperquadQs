@@ -1,6 +1,98 @@
-body {
-    background-color: pink;
-    h1 {
-        color: #fff;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:800,900');
+
+// Variables
+$primary-color: #f47106;
+$bg-color: #fddfc8;
+$xs: 420px;
+$s: 500px;
+$m: 1024px;
+
+html,body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+    
+.hero {
+    text-align: center;
+    .hero-image {
+        background-image:url(hero.jpg); 
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+
+        .hero-title {
+            z-index: 1;
+            color: $primary-color;
+            margin: auto;
+            text-transform: uppercase;
+            .title {
+                font-size: 8em;
+                @media screen and (max-width: $m) {
+                    font-size: 6em;
+                }
+                @media screen and (max-width: $s) {
+                    font-size: 4em;
+                }
+                @media screen and (max-width: $xs) {
+                    font-size: 3em;
+                }
+                margin: 0;
+            }
+            .subtitle {
+                font-size: 5em;
+                @media screen and (max-width: $m) {
+                    font-size: 4em;
+                }
+                @media screen and (max-width: $s) {
+                    font-size: 3em;
+                }
+                @media screen and (max-width: $xs) {
+                    font-size: 2em;
+                }
+                margin: 0;
+            }
+        }
     }
 }
+
+#pics {
+    display: flex;
+    flex-wrap: wrap;
+    div {
+        display: flex;
+        justify-content: center;
+        height: 500px;
+        width: calc(100vw/3);
+        @media screen and (max-width: $m) {
+            width: calc(100vw/2);
+        }
+        @media screen and (max-width: $s) {
+            width: calc(100vw);
+        }
+        opacity: 0.1;
+        transition: opacity 4s;
+        &.is-visible {  
+            background-color: plum;
+            opacity: 1;
+        }
+        img {
+            object-fit: cover;
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
+canvas {
+    background: $bg-color;
+}
+
+
+
+
+
