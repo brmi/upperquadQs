@@ -24,11 +24,13 @@ html,body {
         height: 100vh;
         margin: 0;
         display: flex;
+        justify-content: center;
+        align-items: center;
 
         .hero-title {
             z-index: 1;
             color: $primary-color;
-            margin: auto;
+            // margin: auto;
             text-transform: uppercase;
             .title {
                 font-size: 8em;
