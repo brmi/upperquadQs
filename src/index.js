@@ -14,6 +14,15 @@ function isScrolledIntoView(el) {
     return isVisible;
 }
 
+window.addEventListener('DOMContentLoaded', function(event){
+    let elements = document.querySelector('#pics').children;
+    let j=0;
+    imagesIndex.forEach(function(i){
+        elements[j].children[0].src = jsonData.data[i].images.standard_resolution.url;
+        j++;
+    });
+})
+
 window.addEventListener('scroll', function (event) {
     let elements = document.querySelector('#pics').children;
     let j=0;
@@ -21,7 +30,6 @@ window.addEventListener('scroll', function (event) {
         if (isScrolledIntoView(elements[j])) {
             if(!elements[j].classList.contains('is-visible')) {
                 elements[j].classList.add('is-visible');
-                elements[j].children[0].src = jsonData.data[i].images.standard_resolution.url;
             }
         } else if(elements[j].classList.contains('is-visible')){
             elements[j].classList.remove('is-visible');
